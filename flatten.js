@@ -3,6 +3,10 @@ const eqArrays = function(arrayOne, arrayTwo){
     return false
   }
 
+  if (arrayOne.length === 0 && arrayTwo.length === 0) {
+    return true
+  }
+
   for (let i = 0; i < arrayOne.length; i++){
     if (arrayOne[i] !== arrayTwo[i]){
       return false
@@ -32,7 +36,7 @@ const flatten = function(array){
   }
   return flattenedArray;
 }
-
+assertArraysEqual(flatten([]), []);
 assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
 assertArraysEqual(flatten(["fox", ["bear", "rabbit"], "elephant"]), ["fox", "bear", "rabbit", "elephant"]);
 assertArraysEqual(flatten([2, 3, 4]), [2, 3, 4]);
