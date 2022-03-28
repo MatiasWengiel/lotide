@@ -12,11 +12,12 @@ const countOnly = function(allItems, itemsToCount) {
     if (itemsToCount[item]) { 
       for (eachItem of allItems) {
         if (eachItem === item) {
-            console.log(item);
+            countedItems[item] ? countedItems[item] += 1 : countedItems[item] = 1;
         }
       }
     }
   }
+  return countedItems
 }
 
 
