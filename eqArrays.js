@@ -6,23 +6,23 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const eqArrays = function(arrayOne, arrayTwo){
-  if (arrayOne.length !== arrayTwo.length){
-    return false
+const eqArrays = function(arrayOne, arrayTwo) {
+  if (arrayOne.length !== arrayTwo.length) {
+    return false;
   }
 
   if (arrayOne.length === 0 && arrayTwo.length === 0) {
-    return true
+    return true;
   }
 
-  for (let i = 0; i < arrayOne.length; i++){
-    if (arrayOne[i] !== arrayTwo[i]){
-      return false
-    } 
-    
+  for (let i = 0; i < arrayOne.length; i++) {
+    if (arrayOne[i] !== arrayTwo[i]) {
+      return false;
+    } else {
+      return true;
+    }
   }
-  return true
-}
+};
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
 assertEqual(eqArrays([1, 2, 3, 4], [1, 2, 3]), false);
