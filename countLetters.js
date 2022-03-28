@@ -1,8 +1,15 @@
+const assertEqual = function(actual, expected) {
+  if (actual === expected) {
+    console.log("\x1b[32m%s\x1b[0m", `✅ Assertion Passed: ${actual} === ${expected}. ✅`);
+  } else {
+    console.log("\x1b[31m%s\x1b[0m",`🚩 Assertion Failed: ${actual} !== ${expected}. 🚩`);
+  }
+};
+
 const countLetters = function(string) {
   
   if (typeof string !== "string") { //ensure we are dealing with a string
-    return console.log("Error: Argument is not a string");
-    
+    return "Error: Argument is not a string";
   }
   // remove spaces and capital letters to get an accurate count
   let lowerCaseNoSpaces = string.split(" ").join("").toLowerCase();
@@ -13,9 +20,9 @@ const countLetters = function(string) {
   return letterCount;
 };
 
-//Testing manually, since assertEqual (which is suggested on compass) would not properly test objects
-console.log(countLetters("Taco cat"));
-console.log(countLetters("Matias Wengiel"));
-console.log(countLetters(true));
-console.log(countLetters(undefined));
-console.log(countLetters(123));
+
+assertEqual(countLetters("Taco cat").t, 2);
+assertEqual(countLetters("Matias Wengiel").i, 2);
+assertEqual(countLetters("iiifiiaaa").i, 5);
+assertEqual(countLetters(true),"Error: Argument is not a string");
+assertEqual(countLetters(undefined), "Error: Argument is not a string");
