@@ -3,15 +3,18 @@ const eqArrays = function(arrayOne, arrayTwo){
     return false
   }
 
+  if (arrayOne.length === 0 && arrayTwo.length === 0) {
+    return true
+  }
+
   for (let i = 0; i < arrayOne.length; i++){
     if (arrayOne[i] !== arrayTwo[i]){
       return false
-    } else {
-      return true
-    }
+    } 
+    
   }
+  return true
 }
-
 const assertArraysEqual = function(arrayOne, arrayTwo) {
 
   eqArrays(arrayOne, arrayTwo) ? console.log("\x1b[32m%s\x1b[0m", `✅ Assertion Passed: ${arrayOne} === ${arrayTwo}. ✅`) : 

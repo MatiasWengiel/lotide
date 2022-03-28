@@ -18,10 +18,10 @@ const eqArrays = function(arrayOne, arrayTwo){
   for (let i = 0; i < arrayOne.length; i++){
     if (arrayOne[i] !== arrayTwo[i]){
       return false
-    } else {
-      return true
-    }
+    } 
+    
   }
+  return true
 }
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
