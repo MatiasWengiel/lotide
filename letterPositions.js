@@ -25,11 +25,14 @@ const assertArraysEqual = function(arrayOne, arrayTwo) {
 
 
 const letterPositions = function (sentence) {
+  if (typeof sentence !== "string") { //ensure we are dealing with a string
+    return console.log("Error: Argument is not a string"); 
+  }
   const lowerCaseNoSpaces = sentence.split(" ").join("").toLowerCase();
   const results = {};
 
   //Iterate through lowerCaseNoSpaces
-  //Check each letter in lowerCaseNoSpaces to see if it's present in results
+  //Check each letter in lowerCaseNoSpaces to see if it's present as a key in results
   // if it is not, create an array with the key of the letter at i and the value of i
   // if it is, push i to the existing array
   for (let i = 0; i < lowerCaseNoSpaces.length; i++){
@@ -43,7 +46,6 @@ const letterPositions = function (sentence) {
   return results;
 }
 
-console.log(letterPositions("Hello world"));
 assertArraysEqual(letterPositions("Hello world").h, [0]);
 assertArraysEqual(letterPositions("Hello world").e, [1])
 assertArraysEqual(letterPositions("Hello world").l, [2, 3, 8]);
@@ -51,3 +53,6 @@ assertArraysEqual(letterPositions("Hello world").o, [4, 6]);
 assertArraysEqual(letterPositions("Hello world").w, [5]);
 assertArraysEqual(letterPositions("Hello world").r, [7]);
 assertArraysEqual(letterPositions("Hello world").d, [9]);
+letterPositions(9);
+letterPositions(true);
+letterPositions(undefined);
