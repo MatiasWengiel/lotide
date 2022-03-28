@@ -18,8 +18,8 @@ const eqArrays = function(arrayOne, arrayTwo){
 
 const assertArraysEqual = function(arrayOne, arrayTwo) {
 
-  eqArrays(arrayOne, arrayTwo) ? console.log(`✅ Assertion Passed: ${arrayOne} === ${arrayTwo}. ✅`) : 
-  console.log(`🚩 Assertion Failed: ${arrayOne} !== ${arrayTwo}. 🚩`);
+  eqArrays(arrayOne, arrayTwo) ? console.log("\x1b[32m%s\x1b[0m", `✅ Assertion Passed: ${arrayOne} === ${arrayTwo}. ✅`) : 
+  console.log("\x1b[31m%s\x1b[0m", `🚩 Assertion Failed: ${arrayOne} !== ${arrayTwo}. 🚩`);
    
 }
 
@@ -29,3 +29,4 @@ assertArraysEqual([1, 2, 3], [1, 2, 3, 4]);
 assertArraysEqual(["1", "2", "3"], [1, 2, 3]);
 assertArraysEqual([1], "1");
 assertArraysEqual([], []);
+assertArraysEqual(["hello", "world", "lighthouse"], ["hello", "world", "lighthouse"])
