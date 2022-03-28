@@ -20,12 +20,10 @@ const assertArraysEqual = function(arrayOne, arrayTwo) {
 
   eqArrays(arrayOne, arrayTwo) ? console.log("\x1b[32m%s\x1b[0m", `✅ Assertion Passed: ${arrayOne} === ${arrayTwo}. ✅`) :
     console.log("\x1b[31m%s\x1b[0m", `🚩 Assertion Failed: ${arrayOne} !== ${arrayTwo}. 🚩`);
-   
 };
 
-
 const letterPositions = function(sentence) {
-  if (typeof string !== "string") { //ensure we are dealing with a string
+  if (typeof sentence !== "string") { //ensure we are dealing with a string
     return "Error: Argument is not a string";
   }
   const lowerCaseNoSpaces = sentence.split(" ").join("").toLowerCase();
@@ -36,11 +34,7 @@ const letterPositions = function(sentence) {
   // if it is not, create an array with the key of the letter at i and the value of i
   // if it is, push i to the existing array
   for (let i = 0; i < lowerCaseNoSpaces.length; i++) {
-    if (results[lowerCaseNoSpaces[i]]) {
-      results[lowerCaseNoSpaces[i]].push(i);
-    } else {
-      results[lowerCaseNoSpaces[i]] = [i];
-    }
+    results[lowerCaseNoSpaces[i]] ? results[lowerCaseNoSpaces[i]].push(i) : results[lowerCaseNoSpaces[i]] = [i];
   }
   return results;
 };
@@ -52,6 +46,7 @@ assertArraysEqual(letterPositions("Hello world").o, [4, 6]);
 assertArraysEqual(letterPositions("Hello world").w, [5]);
 assertArraysEqual(letterPositions("Hello world").r, [7]);
 assertArraysEqual(letterPositions("Hello world").d, [9]);
-letterPositions(9);
-letterPositions(true);
-letterPositions(undefined);
+console.log(letterPositions(9));
+console.log(letterPositions(true));
+console.log(letterPositions(undefined));
+
