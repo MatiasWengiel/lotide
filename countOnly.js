@@ -9,13 +9,16 @@ const assertEqual = function(actual, expected) {
 const countOnly = function(allItems, itemsToCount) {
   let countedItems = {};
   for (item in itemsToCount) {
-    for (eachItem of allItems) {
-      if (eachItem === item) {
-        console.log(eachItem);
+    if (itemsToCount[item]) { 
+      for (eachItem of allItems) {
+        if (eachItem === item) {
+            console.log(item);
+        }
       }
     }
   }
 }
+
 
 
 //testing code below
