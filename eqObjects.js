@@ -6,8 +6,25 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+const eqArrays = function(arrayOne, arrayTwo) {
+  if (arrayOne.length !== arrayTwo.length) {
+    return false;
+  }
+
+  if (arrayOne.length === 0 && arrayTwo.length === 0) {
+    return true;
+  }
+
+  for (let i = 0; i < arrayOne.length; i++) {
+    if (arrayOne[i] !== arrayTwo[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
 const eqObjects = function(object1, object2) {
-  /*if (object1.length !== object2.length) { //If they aren't the same length, they aren't identical
+/*  if (Object.keys(object1).length !== Object.keys(object2).length) { //If they aren't the same length, they aren't identical
     return false
   } 
   // would it be better to keep the check above, since it can quickly rule out cases of different lengths? 
@@ -26,7 +43,12 @@ const eqObjects = function(object1, object2) {
   }
 // The two comparisons above will also return false if the lengths are different (as they will have an unmatched key) 
   for (key1 in object1){
-      if (object1[key1] !== object2[key1]) { //If we get to this point, check to see if the values in the keys match
+      console.log(Array.isArray(object1[key1]));
+      if (Array.isArray(object1[key1])) {
+       if (eqArrays(object1[key1], object2[key1]) === false ){
+         return false;
+       }
+      } else if (object1[key1] !== object2[key1]) { //If we get to this point, check to see if the values in the keys match
         return false;
       } 
     }
@@ -65,3 +87,4 @@ assertEqual(eqObjects(cd, dc), true);
 
 cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false);
+
