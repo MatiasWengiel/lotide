@@ -7,9 +7,10 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKeyByValue = function (object, value) {
-  for (key in object) {
-    // This function will iterate through the values associated with the keys and see if a value matches the input - then return the associated key. For now, it just console.logs the key as a starting point
-    console.log(key);
+  for (let key in object) {
+     if (object[key] === value) {
+       return key
+     }
   }
 };
 
