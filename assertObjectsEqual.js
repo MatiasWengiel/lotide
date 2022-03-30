@@ -15,27 +15,23 @@ const eqArrays = function(arrayOne, arrayTwo) {
   return true;
 };
 
+
+const checkKeysAreSame = function(object, otherObject) {
+  for (key in object) {
+    if (otherObject[key] === undefined) {
+      return false;
+    }
+  }
+}
 const eqObjects = function(object1, object2) {
-/*  if (Object.keys(object1).length !== Object.keys(object2).length) { //If they aren't the same length, they aren't identical
-    return false
-  }
-  // would it be better to keep the check above, since it can quickly rule out cases of different lengths?
-  */
 
-  for (let key1 in object1) { //first check to see if object two has all of the same keys in object 1
-    if (object2[key1] === undefined) {
-      return false;
-    }
-  }
+  if (checkKeysAreSame(object1, object2) === false || checkKeysAreSame(object2, object1) === false) {
+    return false;
+  };
 
-  for (let key2 in object2) {
-    if (object1[key2] === undefined) { //also check to see if object1 has all of the same keys in object2
-      return false;
-    }
-  }
-  // The two comparisons above will also return false if the lengths are different (as they will have an unmatched key)
+ 
   for (let key1 in object1) {
-    if (Array.isArray(object1[key1])) {
+    if (Array.isArray(object1[key1])) { //If the property is an array, run eqArrays
       if (eqArrays(object1[key1], object2[key1]) === false) {
         return false;
       }
