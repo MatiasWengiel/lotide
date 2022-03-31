@@ -16,6 +16,13 @@ const eqArrays = function(arrayOne, arrayTwo) {
 };
 
 
+const compareObjectLength = function(object1, object2) {
+  if (Object.keys(object1).length !== Object.keys(object2).length) {
+    return false;
+  }
+};
+
+// In this function, you check the keys of one object against the keys **of the other**. It will return false if they have different keys or if there's a length mismatch (as a key will be undefined)
 const checkKeysAreSame = function(object, otherObject) {
   for (let key in object) {
     if (otherObject[key] === undefined) {
@@ -23,8 +30,12 @@ const checkKeysAreSame = function(object, otherObject) {
     }
   }
 };
-
 const eqObjects = function(object1, object2) {
+  // This length check is redundant, since checkKeysAreSame will return false if the lengths are different, but by comparing lengths first it would save time for very large objects (as it wouldn't need to compare the keys of each until it found an unmatched one)
+  if (compareObjectLength(object1, object2) === false) {
+    return false;
+  }
+
 
   if (checkKeysAreSame(object1, object2) === false || checkKeysAreSame(object2, object1) === false) {
     return false;
