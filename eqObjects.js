@@ -1,10 +1,8 @@
 const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log("\x1b[32m%s\x1b[0m", `✅ Assertion Passed: ${actual} === ${expected}. ✅`);
-  } else {
+  return actual === expected ? console.log("\x1b[32m%s\x1b[0m", `✅ Assertion Passed: ${actual} === ${expected}. ✅`) :
     console.log("\x1b[31m%s\x1b[0m",`🚩 Assertion Failed: ${actual} !== ${expected}. 🚩`);
-  }
 };
+
 
 const eqArrays = function(arrayOne, arrayTwo) {
   if (arrayOne.length !== arrayTwo.length) {
@@ -24,30 +22,30 @@ const eqArrays = function(arrayOne, arrayTwo) {
 };
 /*
 const compareObjectLength = function(object1, object2) {
-  if (Object.keys(object1).length !== Object.keys(object2).length) { 
+  if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false
   }
 };
 */
 // In this function, you check the keys of one object against the keys **of the other**. It will return false if they have different keys or if there's a length mismatch (as a key will be undefined)
 const checkKeysAreSame = function(object, otherObject) {
-  for (key in object) {
+  for (let key in object) {
     if (otherObject[key] === undefined) {
       return false;
     }
   }
-}
+};
 const eqObjects = function(object1, object2) {
 /*
  if (compareObjectLength(object1, object2) === false) {
    return false;
  };
   // would it be better to keep the check above, since it can quickly rule out cases of different lengths?
- */ 
+ */
 
   if (checkKeysAreSame(object1, object2) === false || checkKeysAreSame(object2, object1) === false) {
     return false;
-  };
+  }
 
  
   for (let key1 in object1) {
