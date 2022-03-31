@@ -4,13 +4,9 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKey = function(object, callback) {
-  // for each movie name (key) in object, check the value of the key (which is a second object)
-  // Within the second object, check the value of the .stars key and if it matches 2 return the original key (movie name)
   for (let key in object) {
-    for (let rating in object[key]) {
-      if (object[key][rating] === 2) {
-        return key;
-      }
+    if (callback(object[key])) {
+      return key;
     }
   }
 };
