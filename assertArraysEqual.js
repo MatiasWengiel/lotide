@@ -10,10 +10,9 @@ const eqArrays = function(arrayOne, arrayTwo) {
   for (let i = 0; i < arrayOne.length; i++) {
     if (arrayOne[i] !== arrayTwo[i]) {
       return false;
-    } else {
-      return true;
     }
   }
+  return true;
 };
 
 const assertArraysEqual = function(arrayOne, arrayTwo) {
@@ -22,7 +21,8 @@ const assertArraysEqual = function(arrayOne, arrayTwo) {
     console.log("\x1b[31m%s\x1b[0m", `🚩 Assertion Failed: ${arrayOne} !== ${arrayTwo}. 🚩`);
 };
 
-assertArraysEqual([1, 2, 3], [1, 2,3]);
+assertArraysEqual([1, 2, 3], [1, 2, 3]);
+assertArraysEqual([1, 2, 3], [1, 2, 4]);
 assertArraysEqual([1, 2, 3, 4], [1, 2, 3]);
 assertArraysEqual([1, 2, 3], [1, 2, 3, 4]);
 assertArraysEqual(["1", "2", "3"], [1, 2, 3]);

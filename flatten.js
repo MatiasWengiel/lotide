@@ -10,10 +10,9 @@ const eqArrays = function(arrayOne, arrayTwo) {
   for (let i = 0; i < arrayOne.length; i++) {
     if (arrayOne[i] !== arrayTwo[i]) {
       return false;
-    } else {
-      return true;
     }
   }
+  return true;
 };
 
 const assertArraysEqual = function(arrayOne, arrayTwo) {
@@ -40,3 +39,4 @@ assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
 assertArraysEqual(flatten(["fox", ["bear", "rabbit"], "elephant"]), ["fox", "bear", "rabbit", "elephant"]);
 assertArraysEqual(flatten([2, 3, 4]), [2, 3, 4]);
 assertArraysEqual(flatten([2, "fox", true, [true, false], "bear"]), [2, "fox", true, true, false, "bear"]);
+assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 7]); // false, should fail

@@ -10,10 +10,9 @@ const eqArrays = function(arrayOne, arrayTwo) {
   for (let i = 0; i < arrayOne.length; i++) {
     if (arrayOne[i] !== arrayTwo[i]) {
       return false;
-    } else {
-      return true;
     }
   }
+  return true;
 };
 
 const assertArraysEqual = function(arrayOne, arrayTwo) {
