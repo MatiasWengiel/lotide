@@ -17,17 +17,18 @@ const eqArrays = function(arrayOne, arrayTwo) {
 
 
 const checkKeysAreSame = function(object, otherObject) {
-  for (key in object) {
+  for (let key in object) {
     if (otherObject[key] === undefined) {
       return false;
     }
   }
-}
+};
+
 const eqObjects = function(object1, object2) {
 
   if (checkKeysAreSame(object1, object2) === false || checkKeysAreSame(object2, object1) === false) {
     return false;
-  };
+  }
 
  
   for (let key1 in object1) {
