@@ -1,21 +1,34 @@
-const assertEqual = require('../assertEqual');
 const tail = require('../tail');
+const assert = require('chai').assert;
 
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-assertEqual(tail(words).length, words.length - 1);
-assertEqual(tail(words)[0], words[1]);
-assertEqual(tail(words)[1], words[2]);
-assertEqual(words.length, 3);
+describe('#tail', () => {
+  it('should return "Labs" for ["Yo Yo", "Lighthouse", "Labs"]', () => {
+    const inputArray = ["Yo Yo", "Lighthouse", "Labs"];
+    const expectedOutput = ["Lighthouse", "Labs"];
+    assert.deepEqual(tail(inputArray), expectedOutput);
+  });
 
-const oneWord = ["One"];
-assertEqual(tail(oneWord).length, 0); // an empty array has a length of zero
-assertEqual(Array.isArray(tail(oneWord)), true); // making sure it still returns an array
-assertEqual(oneWord.length, 1);
+  it('should return an empty array for an array with a length of one', () => {
+    const inputArray = ["One"];
+    const expectedOutput = [];
+    assert.deepEqual(tail(inputArray), expectedOutput);
+  });
 
-const noWord = [];
-assertEqual(tail(noWord).length, 0); // an empty array has a length of zero
-assertEqual(Array.isArray(tail(noWord)), true); // making sure it still returns an array
-assertEqual(noWord.length, 0);
+  it('should return an empty array for an empty array', () => {
+    const inputArray = [];
+    const expectedOutput = [];
+    assert.deepEqual(tail(inputArray), expectedOutput);
+  });
 
-const noArray = "";
-assertEqual(tail(noArray), "This argument is not an array");
+  it('should return "This argument is not an array" when passed a non array input', () => {
+    const inputString = "This is not an array";
+    const expectedOutput = "This argument is not an array";
+    assert.deepEqual(tail(inputString), expectedOutput);
+  });
+
+  it('should return the tail of an array of mixed data types, e.g. [false, 3] for ["one", false, 3]', () => {
+    const initialArray = ["one", false, 3];
+    const expectedOutput = [false, 3];
+    assert.deepEqual(tail(initialArray), expectedOutput);
+  });
+});
