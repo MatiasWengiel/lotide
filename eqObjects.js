@@ -4,22 +4,7 @@ const assertEqual = function(actual, expected) {
 };
 
 
-const eqArrays = function(arrayOne, arrayTwo) {
-  if (arrayOne.length !== arrayTwo.length) {
-    return false;
-  }
-
-  if (arrayOne.length === 0 && arrayTwo.length === 0) {
-    return true;
-  }
-
-  for (let i = 0; i < arrayOne.length; i++) {
-    if (arrayOne[i] !== arrayTwo[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const eqArrays = require('./eqArrays');
 
 const compareObjectLength = function(object1, object2) {
   if (Object.keys(object1).length !== Object.keys(object2).length) {
@@ -63,6 +48,8 @@ const eqObjects = function(object1, object2) {
   return true; //If we get here without escaping the function in a previous return, the objects are a match
 };
 
+
+module.exports = eqObjects;
 // const ab = { a: "1", b: "2" };
 // const ba = { b: "2", a: "1" };
 // const bc = { b: "2", c: "3" };
@@ -110,12 +97,12 @@ const eqObjects = function(object1, object2) {
 // assertEqual(eqObjects(stringInArray, stringInArrayAgain), true);
 // assertEqual(eqObjects(arrayWithBooleans, arrayWithBooleansAgain), true);
 
-const abRec = {a: 1, b: {rec: 2}};
-const baRec = {b: {rec: 2}, a:1};
-const abcRec = {a: 1, b: {c: {rec: 2}}};
-const bacRec = {b:{c:{rec:2}}, a:1};
-const notbacRec = {b: {c:{rec: 1}}, a:1};
+// const abRec = {a: 1, b: {rec: 2}};
+// const baRec = {b: {rec: 2}, a:1};
+// const abcRec = {a: 1, b: {c: {rec: 2}}};
+// const bacRec = {b:{c:{rec:2}}, a:1};
+// const notbacRec = {b: {c:{rec: 1}}, a:1};
 
-assertEqual(eqObjects(abRec,baRec), true);
-assertEqual(eqObjects(abcRec, bacRec), true);
-assertEqual(eqObjects(notbacRec, abcRec), false);
+// assertEqual(eqObjects(abRec,baRec), true);
+// assertEqual(eqObjects(abcRec, bacRec), true);
+// assertEqual(eqObjects(notbacRec, abcRec), false);
