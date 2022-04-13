@@ -40,3 +40,5 @@ The following functions are currently implemented:
 * `middle(array)`: Takes in an **array** and returns the value(s) at the mid-point of the array. Will return one value for arrays that have an odd .length property, and two for arrays that have an even .length property. 
 * `tails(array)`: Takes in an **array**, removes the value at index zero and returns the new array containing all other values with their indexes shifted by one.
 * `without(source, itemsToRemove)`: Takes in a source **array** and and array with items to remove from the source, and returns a third **array** that contains all of the items that were not removed from the first.
+* `map(array, callback)`: Takes in an **array** and performs a callback function on each index, then returns a new **array** with the results. 
+* `takeUntil(array, callback)`: Takes in an **array** and pushes the value of each index to a new array until it the callback function returns true, then returns the new **array**
