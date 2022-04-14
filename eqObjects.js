@@ -1,6 +1,3 @@
-const eqArrays = () => ('./eqArrays') ? require('./eqArrays') : require('../eqArrays')
-//since eqObjects may call eqArrays from the testing folder, it needs to be able to retrieve eqArrays from either level
-
 const compareObjectLength = function(object1, object2) {
   if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
@@ -16,7 +13,7 @@ const checkKeysAreSame = function(object, otherObject) {
 };
 
 const eqObjects = function(object1, object2) {
-
+  const eqArrays = require('./eqArrays')
   if (compareObjectLength(object1, object2) === false) {
     return false;
   } // This length check is redundant, since checkKeysAreSame will return false if the lengths are different, but by comparing lengths first it would save run time for very large objects

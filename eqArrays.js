@@ -1,6 +1,3 @@
-const eqObjects = () => ('./eqObjects') ? require('./eqObjects') : require('../eqObjects');
-//since eqArrays may call eqObjects from the testing folder, it needs to be able to retrieve eqObjects from either level
-
 const compareArrLength = function(arrayOne, arrayTwo) {
   if (arrayOne.length !== arrayTwo.length) {
     return false;
@@ -13,23 +10,25 @@ const compareArrLength = function(arrayOne, arrayTwo) {
 }
 
 const eqArrays = function(arrayOne, arrayTwo) {
+  const eqObjects = require('./eqObjects');
 
   if (compareArrLength(arrayOne, arrayTwo) === false) {
     return false;
   }
 
+
   for (let i = 0; i < arrayOne.length; i++) {
-    if (Array.isArray(arrayOne[i])) {
-      if (eqArrays(arrayOne[i], arrayTwo[i]) === false) {
-        return false;
-      }
-    } else if (typeof arrayOne[i] === 'object') {
-      if (eqObjects(arrayOne[i], arrayTwo[i]) === false) {
-        return false;
-      }
-    } else if (arrayOne[i] !== arrayTwo[i]) {
-      return false;
-    }
+     if (Array.isArray(arrayOne[i])) {
+       if (eqArrays(arrayOne[i], arrayTwo[i]) === false) {
+         return false;
+       }
+     } else if (typeof arrayOne[i] === 'object') {
+       if (eqObjects(arrayOne[i], arrayTwo[i]) === false) {
+         return false;
+       }
+     } else if (arrayOne[i] !== arrayTwo[i]) {
+       return false;
+     }
   }
   return true;
 };
