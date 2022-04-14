@@ -1,9 +1,3 @@
-// const assertEqual = function(actual, expected) {
-//   return actual === expected ? console.log("\x1b[32m%s\x1b[0m", `✅ Assertion Passed: ${actual} === ${expected}. ✅`) :
-//     console.log("\x1b[31m%s\x1b[0m",`🚩 Assertion Failed: ${actual} !== ${expected}. 🚩`);
-// };
-
-
 const countOnly = function(allItems, itemsToCount) {
   let countedItems = {};
   // For each key in itemsToCount IF they are true, we iterate through eachItem of allItems and compare it to
@@ -25,27 +19,3 @@ const countOnly = function(allItems, itemsToCount) {
 module.exports = countOnly;
 
 
-// //testing code below
-// const firstNames = [
-//   "Karl",
-//   "Salima",
-//   "Agouhanna",
-//   "Fang",
-//   "Kavith",
-//   "Jason",
-//   "Salima",
-//   "Fang",
-//   "Joe",
-//   1,
-//   true,
-//   false,
-//   "true",
-//   "false",
-// ];
-
-// const result1 = countOnly(firstNames, {"Jason": true, "Karima": true, "Fang": true, "Agouhanna": false });
-
-// assertEqual(result1["Jason"], 1);
-// assertEqual(result1["Karima"], undefined);
-// assertEqual(result1["Fang"], 2);
-// assertEqual(result1["Agouhanna"], undefined);
