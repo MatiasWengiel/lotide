@@ -1,4 +1,4 @@
-const eqArrays = () => ('./eqArrays') ? require('./eqArrays') : require('../eqArrays')
+const eqArrays = () => ('./eqArrays') ? require('./eqArrays') : require('../eqArrays');
 //since eqObjects may call eqArrays from the testing folder, it needs to be able to retrieve eqArrays from either level
 
 const compareObjectLength = function(object1, object2) {
@@ -7,7 +7,6 @@ const compareObjectLength = function(object1, object2) {
   }
 };
 
-// In this function, you check the keys of one object against the keys **of the other**. It will return false if they have different keys or if there's a length mismatch (as a key will be undefined)
 const checkKeysAreSame = function(object, otherObject) {
   for (let key in object) {
     if (otherObject[key] === undefined) {
