@@ -66,4 +66,11 @@ describe('#eqObjects', () => {
     assert.equal(eqObjects(nestedabc, nestedcab), expectedOutput)
   })
 
+  it('should return false for combined nested objects and arrays that differ, such as  { a: 1, b: [2, 3, {notQuite: "done"}], c: {notNestedEnough: "yet", d: [4, 5]}} and  { a: 1, b: [2, 3, {notQuite: "done"}], c: {almost: "done", d: [4, 5]}}', () => {
+    const nestedObj = { a: 1, b: [2, 3, {notQuite: "done"}], c: {notNestedEnough: "yet", d: [4, 5]}} 
+    const otherNestedObj = { a: 1, b: [2, 3, {notQuite: "done"}], c: {almost: "done", d: [4, 5]}}
+    const expectedOutput = false;
+    assert.equal(eqObjects(nestedObj, otherNestedObj), false);
+  })
+
 })
