@@ -7,7 +7,7 @@ const compareArrLength = function(arrayOne, arrayTwo) {
     return true;
   }
   
-}
+};
 
 const eqArrays = function(arrayOne, arrayTwo) {
   const eqObjects = require('./eqObjects');
@@ -18,17 +18,17 @@ const eqArrays = function(arrayOne, arrayTwo) {
 
 
   for (let i = 0; i < arrayOne.length; i++) {
-     if (Array.isArray(arrayOne[i])) {
-       if (eqArrays(arrayOne[i], arrayTwo[i]) === false) {
-         return false;
-       }
-     } else if (typeof arrayOne[i] === 'object') {
-       if (eqObjects(arrayOne[i], arrayTwo[i]) === false) {
-         return false;
-       }
-     } else if (arrayOne[i] !== arrayTwo[i]) {
-       return false;
-     }
+    if (Array.isArray(arrayOne[i])) {
+      if (eqArrays(arrayOne[i], arrayTwo[i]) === false) {
+        return false;
+      }
+    } else if (typeof arrayOne[i] === 'object') {
+      if (eqObjects(arrayOne[i], arrayTwo[i]) === false) {
+        return false;
+      }
+    } else if (arrayOne[i] !== arrayTwo[i]) {
+      return false;
+    }
   }
   return true;
 };

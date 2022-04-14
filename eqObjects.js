@@ -13,7 +13,7 @@ const checkKeysAreSame = function(object, otherObject) {
 };
 
 const eqObjects = function(object1, object2) {
-  const eqArrays = require('./eqArrays')
+  const eqArrays = require('./eqArrays');
   if (compareObjectLength(object1, object2) === false) {
     return false;
   } // This length check is redundant, since checkKeysAreSame will return false if the lengths are different, but by comparing lengths first it would save run time for very large objects
@@ -24,19 +24,19 @@ const eqObjects = function(object1, object2) {
 
  
   for (let key1 in object1) {
-    if (Array.isArray(object1[key1])) { 
+    if (Array.isArray(object1[key1])) {
       if (eqArrays(object1[key1], object2[key1]) === false) {
         return false;
       }
-    } else if (typeof object1[key1] === 'object') { 
+    } else if (typeof object1[key1] === 'object') {
       if (eqObjects(object1[key1], object2[key1]) === false) {
         return false;
       }
-    } else if (object1[key1] !== object2[key1]) { 
+    } else if (object1[key1] !== object2[key1]) {
       return false;
     }
   }
-  return true; 
+  return true;
 };
 
 
