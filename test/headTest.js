@@ -10,7 +10,7 @@ describe("#head", () => {
 
   it("returns '5' for ['5']", () => {
     const inputArray = ['5'];
-    const expectedOutput = '5'
+    const expectedOutput = '5';
     assert.strictEqual(head(inputArray), expectedOutput);
   });
 
@@ -28,15 +28,15 @@ describe("#head", () => {
 
   it("returns 'Hello' for ['Hello', 'Lighthouse', 'Labs']", () => {
     const inputArray = ['Hello', 'Lighthouse', 'Labs'];
-    const expectedOutput = 'Hello'
+    const expectedOutput = 'Hello';
     assert.strictEqual(head(inputArray), expectedOutput);
   });
 
   it("returns 'The argument is not an array' for ['test']", () => {
     const inputString = 'test';
-    const expectedOutput = 'The argument is not an array'
+    const expectedOutput = 'The argument is not an array';
     assert.strictEqual(head(inputString), expectedOutput);
-  })
+  });
 
   it("returns undefined for []", () => {
     const inputArray = [];
