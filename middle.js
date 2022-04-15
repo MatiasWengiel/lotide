@@ -1,7 +1,7 @@
 const middle = (array) => {
   //Returns the values at the index (or indices) in the middle of an array
   let middleIndex = 0;
-  if (Array.isArray(array) === false) {
+  if (!Array.isArray(array)) {
     return "The input is not an array";
   }
   
