@@ -22,6 +22,27 @@ describe('#takeUntil', () => {
     const callbackFn = x => x === ",";
     assert.deepEqual(takeUntil(inputArr, callbackFn), expectedOutput);
   })
+
+  it('should return [false] for array [false, true, false] and callback x => x === !false', () => {
+    const inputArr = [false, true, false];
+    const expectedOutput = [false]
+    const callbackFn = x => x === !false;
+    assert.deepEqual(takeUntil(inputArr, callbackFn), expectedOutput)
+  })
+
+  it('should return [1, 2] for array [1, 2, [3, 4]] and callback x => Array.isArray(x)', () => {
+    const inputArr = [1, 2, [3, 4]];
+    const expectedOutput = [1, 2]
+    const callbackFn = x => Array.isArray(x);
+    assert.deepEqual(takeUntil(inputArr, callbackFn), expectedOutput)
+  })
+
+  it('should return ["LHL", 15] for array ["LHL", 15, true, "fun"] and callback x === true', () => {
+    const inputArr = ["LHL", 15, true, "fun"] ;
+    const expectedOutput = ["LHL", 15]
+    const callbackFn = x => x === true;
+    assert.deepEqual(takeUntil(inputArr, callbackFn), expectedOutput)
+  })
 })
 
 // console.log("should pass \n");
