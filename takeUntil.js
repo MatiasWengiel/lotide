@@ -3,10 +3,13 @@ const takeUntil = function(array, callback) {
   for (let item of array) {
     if (callback(item)) {
       return outputArray;
-    } else {
+    } else if(Array.isArray(item)) {
+        outputArray.push(takeUntil(item, callback))
+    } else {  
       outputArray.push(item);
     }
   }
+  return outputArray;
 };
 
 module.exports = takeUntil;
