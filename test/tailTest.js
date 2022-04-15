@@ -20,9 +20,9 @@ describe('#tail', () => {
     assert.deepEqual(tail(inputArray), expectedOutput);
   });
 
-  it('should return "This argument is not an array" when passed a non array input', () => {
+  it('should return "This input is not an array" when passed a non array input', () => {
     const inputString = "This is not an array";
-    const expectedOutput = "This argument is not an array";
+    const expectedOutput = "This input is not an array";
     assert.deepEqual(tail(inputString), expectedOutput);
   });
 

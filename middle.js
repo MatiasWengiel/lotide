@@ -1,10 +1,11 @@
-const middle = function(array) {
+const middle = (array) => {
+  //Returns the values at the index (or indices) in the middle of an array
   let middleIndex = 0;
   if (Array.isArray(array) === false) {
     return "The input is not an array";
   }
   
-  if (array.length <= 2) {
+  if (array.length <= 2) { //If there are two or fewer indices, returns an empty array as there is no proper middle
     return [];
   }
 

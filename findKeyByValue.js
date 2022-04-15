@@ -1,4 +1,5 @@
-const findKeyByValue = function(object, value) {
+const findKeyByValue = (object, value) => {
+  //Returns the first key in an object that has the value required
   for (let key in object) {
     if (object[key] === value) {
       return key;

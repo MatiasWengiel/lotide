@@ -1,4 +1,4 @@
-const letterPositions = function(sentence) {
+const letterPositions = (sentence) => {
   if (typeof sentence !== "string") { //ensure we are dealing with a string
     return "Error: Argument is not a string";
   }

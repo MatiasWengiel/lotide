@@ -1,5 +1,6 @@
 const countLetters = function(string) {
-  
+  //counts the number of times each letter in a string appears in said string, and returns an object with the count for all letters combined. Function ignores spaces.
+
   if (typeof string !== "string") { //ensure we are dealing with a string
     return "Error: Argument is not a string";
   }

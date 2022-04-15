@@ -1,3 +1,4 @@
+//Imports all functions and exports them for ease of use
 const assertArraysEqual = require('./assertArraysEqual');
 const assertEqual = require('./assertEqual');
 const assertObjectsEqual = require('./assertObjectsEqual');
