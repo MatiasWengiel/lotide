@@ -43,6 +43,13 @@ describe('#takeUntil', () => {
     const callbackFn = x => x === true;
     assert.deepEqual(takeUntil(inputArr, callbackFn), expectedOutput)
   })
+
+  it('should return [1, [2]] for [1, [2, 3]] and callback x => x >= 3', () => {
+    const inputArr = [1, [2, 3]];
+    const expectedOutput = [1, [2]];
+    const callbackFn = x => x >= 3;
+    assert.deepEqual(takeUntil(inputArr, callbackFn), expectedOutput)
+  })
 })
 
 // console.log("should pass \n");
