@@ -1,10 +1,10 @@
 const flatten = (array) => {
-  let outputArr = []
+  let outputArr = [];
   for (let eachIndex of array) {
     if (Array.isArray(eachIndex)) {
       let subOut = flatten(eachIndex);
       for (let eachSubIndex of subOut) {
-        outputArr.push(eachSubIndex)
+        outputArr.push(eachSubIndex);
       }
     } else {
       outputArr.push(eachIndex);
@@ -12,5 +12,5 @@ const flatten = (array) => {
   }
   
   return outputArr;
-}
+};
 module.exports = flatten;
